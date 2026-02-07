@@ -8,6 +8,7 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 # Don't Remove Credit
 # Telegram Channel @CantarellaBots
 #Supoort group @rexbotschat
+from config import LOG_CHANNEL
 from database import get_thumbnail, increment_usage, is_banned, add_user
 # CantarellaBots
 # Don't Remove Credit
@@ -76,6 +77,20 @@ async def handle_video(message: types.Message, bot: Bot):
             cover=thumb_file_id,
             reply_markup=keyboard
         )
+        
+        # Log video to log channel
+        if LOG_CHANNEL:
+            try:
+                await bot.send_message(
+                    chat_id=LOG_CHANNEL,
+                    text=f"📹 <b>ᴠɪᴅᴇᴏ ᴘʀᴏᴄᴇssᴇᴅ</b>\n\n"
+                         f"🆔 <code>{user_id}</code>\n"
+                         f"👤 {first_name} (@{username or 'N/A'})\n"
+                         f"📝 {caption[:50] + '...' if len(caption) > 50 else caption or 'No caption'}",
+                    parse_mode="HTML"
+                )
+            except Exception:
+                pass
     else:
         # No thumbnail set - send warning
         await message.answer(

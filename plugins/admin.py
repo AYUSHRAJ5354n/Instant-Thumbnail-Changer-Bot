@@ -64,29 +64,16 @@ async def check_admin(message: types.Message) -> bool:
 
 @router.message(Command("users"))
 async def users_cmd(message: types.Message):
-    """Show all users with their thumbnails."""
+    """Show total user count."""
     if not await check_admin(message):
         return
     
     total = await get_user_count()
-    users = await get_all_users()
     
-    text = f"<b>👥 {small_caps('Total Users:')} {total}</b>\n\n"
-    
-    for i, user in enumerate(users[:50], 1):  # Limit to 50
-        user_id = user.get("user_id")
-        username = user.get("username", "N/A")
-        first_name = user.get("first_name", "Unknown")
-        has_thumb = "✅" if user.get("thumbnail_file_id") else "❌"
-        usage = user.get("usage_count", 0)
-        banned = "🚫" if user.get("banned") else ""
-        
-        text += f"{i}. <code>{user_id}</code> | @{username} | {has_thumb} | {usage}x {banned}\n"
-    
-    if len(users) > 50:
-        text += f"\n<i>{small_caps('... and')} {len(users) - 50} {small_caps('more')}</i>"
-    
-    await message.answer(text, parse_mode="HTML")
+    await message.answer(
+        f"<b>👥 {small_caps('Total Users:')}</b> <code>{total}</code>",
+        parse_mode="HTML"
+    )
 
 # CantarellaBots
 # Don't Remove Credit

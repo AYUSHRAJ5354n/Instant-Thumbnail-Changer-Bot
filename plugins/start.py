@@ -9,8 +9,8 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, URLInputFi
 # Don't Remove Credit
 # Telegram Channel @CantarellaBots
 #Supoort group @rexbotschat
-from config import CHANNEL_URL, DEV_URL, get_random_pic
-from database import add_user, is_banned
+from config import CHANNEL_URL, DEV_URL, get_random_pic, LOG_CHANNEL
+from database import add_user, is_banned, get_user
 # CantarellaBots
 # Don't Remove Credit
 # Telegram Channel @CantarellaBots
@@ -50,8 +50,26 @@ async def start_cmd(message: types.Message, bot: Bot):
         await message.answer(small_caps("You are banned from using this bot."))
         return
     
+    # Check if new user
+    existing_user = await get_user(user_id)
+    is_new_user = existing_user is None
+    
     # Add/update user in database
     await add_user(user_id, username, first_name)
+    
+    # Log new user to log channel
+    if is_new_user and LOG_CHANNEL:
+        try:
+            await bot.send_message(
+                chat_id=LOG_CHANNEL,
+                text=f"👤 <b>ɴᴇᴡ ᴜsᴇʀ</b>\n\n"
+                     f"🆔 <code>{user_id}</code>\n"
+                     f"👤 {first_name}\n"
+                     f"🔗 @{username or 'N/A'}",
+                parse_mode="HTML"
+            )
+        except Exception:
+            pass
     
     # Welcome text in small caps with blockquote
     welcome_text = (
