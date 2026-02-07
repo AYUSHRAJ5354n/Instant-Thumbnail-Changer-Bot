@@ -53,8 +53,8 @@
 
 ### 🐳 Docker
 ```bash
-docker build -t thumbnail-bot .
-docker run --env-file .env thumbnail-bot
+docker build -t cantarellabots-thumbnail-bot .
+docker run --env-file .env cantarellabots-thumbnail-bot
 ```
 
 ### 💻 Local

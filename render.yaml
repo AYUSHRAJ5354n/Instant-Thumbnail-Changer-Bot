@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: thumbnail-bot
+    name: cantarellabots-thumbnail-bot
     env: docker
     dockerfilePath: ./Dockerfile
     plan: free
