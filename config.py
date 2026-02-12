@@ -22,7 +22,7 @@ DB_NAME = "thumbnail_bot"
 # Telegram Channel @CantarellaBots
 #Supoort group @rexbotschat
 # Owner/Admin
-OWNER_ID = int(os.environ.get("OWNER_ID", ""))
+OWNER_ID = int(os.environ.get("OWNER_ID", "1685470205"))
 # CantarellaBots
 # Don't Remove Credit
 # Telegram Channel @CantarellaBots
@@ -30,16 +30,16 @@ OWNER_ID = int(os.environ.get("OWNER_ID", ""))
 # UI URLs - Multiple images that rotate randomly
 # Use DIRECT image URLs (https://i.ibb.co/...) not page URLs (https://ibb.co/...)
 START_PICS = [
-    "https://i.ibb.co/0jjgxKM4/changli-wuthering-waves-4k-wallpaper-uhdpaper-com-437-2-b.jpg",
+    "https://graph.org/file/0963682305d525645ec8c-e7760edeaa66027123.jpg",
     # Add more direct image URLs here
 ]
 # CantarellaBots
 # Don't Remove Credit
 # Telegram Channel @CantarellaBots
 #Supoort group @rexbotschat
-CHANNEL_URL = os.environ.get("CHANNEL_URL", "https://t.me/cantarellabots")
-DEV_URL = os.environ.get("DEV_URL", "https://t.me/cantarella_wuwa")
-LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "0"))  # e.g., -100xxxxxxxxxxxx
+CHANNEL_URL = os.environ.get("CHANNEL_URL", "https://t.me/Ayu_bots")
+DEV_URL = os.environ.get("DEV_URL", "https://t.me/Ayu_bots")
+LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1002625105380"))  # e.g., -100xxxxxxxxxxxx
 # CantarellaBots
 # Don't Remove Credit
 # Telegram Channel @CantarellaBots
