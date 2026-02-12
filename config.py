@@ -15,7 +15,7 @@ API_TOKEN = os.environ.get("API_TOKEN", "")
 # Telegram Channel @CantarellaBots
 #Supoort group @rexbotschat
 # MongoDB
-MONGO_URL = os.environ.get("MONGO_URL", "")
+MONGO_URL = os.environ.get("MONGO_URL", "mongodb+srv://AYU:AYU@cluster0.ktht2nm.mongodb.net/?appName=Cluster0")
 DB_NAME = "thumbnail_bot"
 # CantarellaBots
 # Don't Remove Credit
